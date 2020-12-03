@@ -20,7 +20,7 @@ import {
   Message,
   Notice
 } from 'iview'
-
+import './iview'
 Vue.component('iv-row', Row)
 Vue.component('iv-col', Col)
 Vue.component('iv-button', Button)

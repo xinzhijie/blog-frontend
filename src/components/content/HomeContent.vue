@@ -7,14 +7,17 @@
             <title-menu-filter @filterByMenu="refreshArticle"  slot="menu" :menu-filter-list="defaultFilterList"></title-menu-filter>
           </section-title>
           <article-list-cell v-for="article in articleList" :article="article" :key="article.title" :type="'article'"></article-list-cell>
+          <browse-more @browseMore="browseMoreArticle" :noMoreData="false"  ref="browseMore"></browse-more>
           <section-title :mainTitle="'阅读'" :subTitle="'Books'" :tipText="'View More'" :tipHref="'/books'">
             <title-menu-filter @filterByMenu="refreshBook"  slot="menu"></title-menu-filter>
           </section-title>
           <book-list-cell v-for="book in bookList" :book="book" :key="book.title" :type="'book'"></book-list-cell>
+          <browse-more @browseMore="browseMoreBook" :noMoreData="false"  ref="browseMore"></browse-more>
           <section-title :mainTitle="'笔记'" :subTitle="'Notes'" :tipText="'View More'" :tipHref="'/books'">
             <title-menu-filter @filterByMenu="refreshBookNote"  slot="menu" :menu-filter-list="bookNoteFilterList"></title-menu-filter>
           </section-title>
           <book-note-list-cell v-for="bookNote in bookNoteList" :bookNote="bookNote" :key="bookNote.title"></book-note-list-cell>
+          <browse-more @browseMore="browseMoreNote" :noMoreData="false"  ref="browseMore"></browse-more>
         </div>
       </iv-col>
       <iv-col :xs="0" :sm="0" :md="0" :lg="7">
@@ -48,6 +51,7 @@ import HotRead from '@/components/views/HotRead'
 import SideToc from '@/components/views/SideToc'
 import merge from 'lodash/merge' // 合并对象工具
 import {DefaultFilterList, DefaultLimitSize} from '@/common/js/const'
+import BrowseMore from '@/components/views/BrowseMore'
 export default {
   data () {
     return {
@@ -77,7 +81,8 @@ export default {
     'side-toc': SideToc,
     'tag-wall': TagWall,
     'recommend': Recommend,
-    'hot-read': HotRead
+    'hot-read': HotRead,
+    'browse-more': BrowseMore
   },
   created: function () {
     let param = {}
@@ -87,6 +92,15 @@ export default {
     this.refreshBookNote(param)
   },
   methods: {
+    browseMoreArticle () {
+      this.$router.push({ name: 'articles' })
+    },
+    browseMoreBook () {
+      this.$router.push({ name: 'books' })
+    },
+    browseMoreNote () {
+      this.$router.push({ name: 'books' })
+    },
     refreshArticle (param) {
       let params = merge(param, this.pageParam)
       this.$http({

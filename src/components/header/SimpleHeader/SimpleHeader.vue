@@ -10,8 +10,8 @@
       <div id="header"  v-show="show">
     <router-link id="logo" to="/">
       <img src="../../../assets/logo.png">
-      <span class="title">DB's Blog</span>
-      <span class="motto">success belongs to the persevering</span>
+      <span class="title">个人博客</span>
+      <span class="motto">但使龙城飞将在,不教胡马度阴山</span>
     </router-link>
     <ul id="nav">
       <li>
@@ -34,7 +34,7 @@
       <li><a href="/articles" class="nav-link contribute">文章</a></li>
       <li><a href="/books" class="nav-link contribute">阅读</a></li>
       <li><a href="/timeline" class="nav-link contribute">时光轴</a></li>
-      <li><a href="/article/1" class="nav-link contribute">关于</a></li>
+      <li><a href="/article/776" class="nav-link contribute">关于</a></li>
     </ul>
     </div>
     </transition>
