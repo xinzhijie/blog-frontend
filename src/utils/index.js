@@ -20,8 +20,6 @@ export function getSysParamArr (type) {
 }
 export function clearLoginInfo () {
   Vue.cookie.delete('token')
-  store.commit('resetStore')
-  router.options.isAddDynamicMenuRoutes = false
 }
 /**
  * [Datestr 时间戳转字符串格式]

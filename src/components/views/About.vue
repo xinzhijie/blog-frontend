@@ -46,6 +46,7 @@ import { getUUID } from '@/utils'
 import LoginForm from '@/components/login-form'
 import UpdatePassword from '../admin/main-navbar-update-password'
 import Vue from 'vue'
+import { clearLoginInfo } from '@/utils'
 export default {
   name: 'login',
   components: {LoginForm, UpdatePassword},
@@ -100,7 +101,8 @@ export default {
         }).then(({data}) => {
           if (data && data.code === 200) {
             clearLoginInfo()
-            this.$router.push({ name: 'login' })
+            this.show = true
+            // this.$router.push({ path: '/' })
           }
         })
       }).catch(() => {})
