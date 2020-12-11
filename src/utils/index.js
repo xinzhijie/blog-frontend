@@ -1,5 +1,28 @@
 import {LineBreakMode} from '@/common/js/const'
-
+import Vue from 'vue'
+import router from '@/router'
+import store from '@/store'
+export function getUUID () {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+    return (c === 'x' ? (Math.random() * 16 | 0) : ('r&0x3' | '0x8')).toString(16)
+  })
+}
+export function getSysParamArr (type) {
+  let sysParamList = JSON.parse(localStorage.getItem('sysParamList'))
+  let resultArr = []
+  for (let i = 0; i < sysParamList.length; i++) {
+    let sysParam = sysParamList[i]
+    if (sysParam.type === type) {
+      resultArr.push(sysParam)
+    }
+  }
+  return resultArr
+}
+export function clearLoginInfo () {
+  Vue.cookie.delete('token')
+  store.commit('resetStore')
+  router.options.isAddDynamicMenuRoutes = false
+}
 /**
  * [Datestr 时间戳转字符串格式]
  */

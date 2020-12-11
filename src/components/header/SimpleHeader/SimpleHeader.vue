@@ -9,8 +9,8 @@
     <transition name="slide-fade">
       <div id="header"  v-show="show">
     <router-link id="logo" to="/">
-      <img src="../../../assets/logo.png">
-      <span class="title">个人博客</span>
+<!--      <img src="../../../assets/logo.png">-->
+      <span class="title"></span>
       <span class="motto">但使龙城飞将在,不教胡马度阴山</span>
     </router-link>
     <ul id="nav">

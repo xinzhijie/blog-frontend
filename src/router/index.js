@@ -2,12 +2,13 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import {LoadingBar} from 'iview'
 import Index from '@/components/index/Index'
-
+import main from '@/components/admin/main'
 // 公共区域
 // import CommonHeader from '@/components/header/CommonHeader';
 import SimpleHeader from '@/components/header/SimpleHeader/SimpleHeader'
 import CommonFooter from '@/components/footer/CommonFooter'
-
+import ArticleAddOrUpdate from '@/components/views/Article/Article-add-or-update'
+import Article from '@/components/views/Article/article'
 // 首页
 import HomeContent from '@/components/content/HomeContent'
 import ArticleContent from '@/components/content/ArticleContent'
@@ -138,6 +139,32 @@ let router = new Router({
           },
           meta: {
             title: '时间轴 | 码农'
+          }
+        }
+      ],
+    },
+    {
+      path: '/',
+      component: main,
+      name: 'main',
+      meta: { title: '主入口整体布局' },
+      children: [
+        { path: '/articleAddOrUpdate',
+          component: ArticleAddOrUpdate,
+          name: 'article-update',
+          meta: {
+            menuId: 'article-update',
+            title: '博文修改',
+            isTab: true
+          }
+        },
+        { path: '/articleList',
+          component: Article,
+          name: 'article-update',
+          meta: {
+            menuId: 'article-update',
+            title: '博文修改',
+            isTab: true
           }
         }
       ]

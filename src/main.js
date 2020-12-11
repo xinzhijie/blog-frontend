@@ -5,7 +5,14 @@ import 'iview/dist/styles/iview.css'
 import '@/common/stylus/index.styl'
 import App from './App.vue'
 import httpRequest from '@/utils/httpRequest'
-
+import VueCookie from 'vue-cookie'
+import ElementUI from 'element-ui';
+import '@/element-ui'
+import '@/icons'
+import '@/element-ui-theme'
+import '@/assets/css/index.scss'
+Vue.use(ElementUI);
+Vue.use(VueCookie)
 // iView UI 组件引入
 import {
   Row,

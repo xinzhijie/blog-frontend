@@ -1,7 +1,7 @@
 import axios from 'axios'
 import qs from 'qs' // 字符串处理
 import merge from 'lodash/merge' // 合并对象工具
-
+import Vue from 'vue'
 const http = axios.create({
   timeout: 1000 * 30,
   withCredentials: true, // 当前请求为跨域类型时是否在请求中协带cookie
@@ -9,7 +9,14 @@ const http = axios.create({
     'Content-Type': 'application/json;charset=utf-8'
   }
 })
-
+http.interceptors.request.use(config => {
+  // 处理请求之前的配置
+  config.headers['token'] = Vue.cookie.get('token') // // 请求头带上token
+  return config
+}, error => {
+  // 请求失败的处理
+  return Promise.reject(error)
+})
 /**
  * 请求地址处理
  * @param {*} actionName action方法名称

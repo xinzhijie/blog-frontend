@@ -59,7 +59,7 @@ export default {
   },
   methods: {
     handleSubmit () {
-      this.$emit('on-success-valid', this.form.userName, this.form.password)
+      this.$emit('on-success-valid', {userName: this.form.userName, password: this.form.password})
     }
   }
 }
