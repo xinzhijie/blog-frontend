@@ -166,7 +166,16 @@ let router = new Router({
             title: '博文修改',
             isTab: true
           }
-        }
+        },
+        { path: '/article/article/update/:id',
+          component: ArticleAddOrUpdate,
+          name: 'article-update',
+          meta: {
+            menuId: 'article-update',
+            title: '博文修改',
+            isTab: true
+          }
+        },
       ]
     }
   ]

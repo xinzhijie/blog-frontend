@@ -148,7 +148,7 @@ export default {
       dataListSelections: []
     }
   },
-  activated () {
+  created () {
     this.getDataList()
   },
   methods: {

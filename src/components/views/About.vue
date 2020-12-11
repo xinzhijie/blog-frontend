@@ -74,7 +74,7 @@ export default {
   },
   created() {
     let token = Vue.cookie.get('token')
-    if (!token || !/\S/.test(token)) { // 正则：非空白就匹配
+    if (!token || !/\S/.test(token)) { // 正则：非空白就匹配http://112.126.97.236:8082/
       this.show = true
     } else {
       this.show = false
