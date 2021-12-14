@@ -14,7 +14,7 @@ RUN rm -rf /etc/nginx/conf.d/*
 
 COPY nginx.template /etc/nginx/nginx.template
 
-ENV APIIP  112.126.97.236:8080
+ENV APIIP  172.19.0.11:8080
 CMD envsubst '$APIIP' < /etc/nginx/nginx.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'
 
 
